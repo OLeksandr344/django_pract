@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+{% load static %}
+<html style="font-size: 16px;" lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>DND Calculator</title>
+    <link rel="stylesheet" href="{% static "calculator/nicepage.css" %}" media="screen">
+    <link rel="stylesheet" href="{% static "calculator/index.css" %}" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta name="generator" content="Nicepage 6.16.8, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"url": "/"
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Dark And Darker Calculator">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-home-page="https://website6328811.nicepage.io/Главная.html?version=f8d58946-7213-7038-2809-6074b8b6ebfd" data-home-page-title="Dark And Darker Calculator" data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="ru">
+    <section class="u-clearfix u-grey-75 u-section-1" id="sec-757b">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-container-style u-gradient u-group u-radius u-shape-round u-group-1">
+          <div class="u-container-layout u-container-layout-1">
+            <h3 class="u-text u-text-default u-text-1">Input </h3>
+            <p class="u-text u-text-2">Strength</p>
+            <p class="u-text u-text-3"id="strength" > {{ character.strength }} </p>
+            
+            <button id="increase-strength-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-1">{% csrf_token %} 
+              
+              <span class="u-file-icon u-icon u-icon-1">
+                <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+              </span>
+            </button>
+      
+            <button id="decrease-strength-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-2">{% csrf_token %}            
+              <span class="u-file-icon u-icon u-icon-2">
+                <img src="{% static 'calculator/images/32320.png' %}" alt="">
+              </span>
+            </button>
+
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-1"></div>
+            <p class="u-text u-text-4"id="vigor">{{ character.vigor }} </p>
+            <p class="u-text u-text-5"> Vigor </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-2"></div>
+            
+            <button id="increase-vigor-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-3">{% csrf_token %} 
+              
+              <span class="u-file-icon u-icon u-icon-3">
+                <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+              </span>
+            </button>
+            <button id="decrease-vigor-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-4">{% csrf_token %} 
+            <span class="u-file-icon u-icon u-icon-4"><img src="{% static 'calculator/images/32320.png' %}" alt=""></span>&nbsp;
+          </button>
+          <p class="u-text u-text-6" id="agility"> {{character.agility}} </p>
+          <p class="u-text u-text-7">Agility </p>
+          <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-3"></div>
+          <button id="increase-agility-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-5">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-5">
+              <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+            </span>
+          </button>
+          <button id="decrease-agility-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-6">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-6">
+              <img src="{% static 'calculator/images/32320.png' %}" alt="">
+            </span>
+          </button>
+          <p class="u-text u-text-8" id="dexterity">{{character.dexterity}} </p>
+          <p class="u-text u-text-9">Dexterity </p>
+          <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-4"></div>
+          <button id="increase-dexterity-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-7">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-7">
+              <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+            </span>
+          </button>
+          <button id="decrease-dexterity-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-8">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-8">
+              <img src="{% static 'calculator/images/32320.png' %}" alt="">
+            </span>
+          </button>
+          <p class="u-text u-text-10"id="will">{{character.will}}</p>
+          <p class="u-text u-text-11">Will</p>
+          <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-5"></div>         
+          <button id="increase-will-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-9">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-9">
+              <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+            </span>
+          </button>
+          <button id="decrease-will-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-10">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-10">
+              <img src="{% static 'calculator/images/32320.png' %}" alt="">
+            </span>
+          </button>
+
+          <p class="u-text u-text-12" id="knowledge">{{character.knowledge}} </p>
+          <p class="u-text u-text-13">Knowledge </p>
+          <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-6"></div>
+          <button id="increase-knowledge-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-11">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-11">
+              <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+            </span>
+          </button>         
+          <button id="decrease-knowledge-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-12">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-12">
+              <img src="{% static 'calculator/images/32320.png' %}" alt="">
+            </span>
+          </button>
+
+          <p class="u-text u-text-14" id="resourcefulness"> {{character.resourcefulness}} </p>
+          <p class="u-text u-text-15">Resourcefulness</p>
+          <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-7"></div>
+
+          <button id="increase-resourcefulness-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-13">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-13">
+              <img src="{% static 'calculator/images/3524388.png' %}" alt="">
+            </span>
+          </button>    
+          <button id="decrease-resourcefulness-img-btn" method="post" class="u-border-none u-btn u-button-style u-none u-btn-14">
+            {% csrf_token %}
+            <span class="u-file-icon u-icon u-icon-14">
+              <img src="{% static 'calculator/images/32320.png' %}" alt="">
+            </span>
+          </button> 
+                  
+          <button id="reset-btn" method="post" class="u-btn u-button-style u-grey-70 u-btn-15">
+              {% csrf_token %}
+              Reset
+          </button>
+                      
+          <button id="save-btn" method="post" class="u-btn u-button-style u-grey-70 u-btn-16">
+            {% csrf_token %}
+            Save
+          </button>           
+            <button id="load-btn" method="post" class="u-btn u-button-style u-grey-70 u-btn-17">
+              {% csrf_token %}
+              Load
+            </button>
+          </div>
+        </div>
+        <div class="u-container-style u-gradient u-group u-radius u-shape-round u-group-2">
+          <div class="u-container-layout u-container-layout-2">
+            <h3 class="u-text u-text-default u-text-21">Output</h3>
+            <p class="u-text u-text-22 "id="health">&nbsp;{{character.health}}</p>
+            <p class="u-text u-text-23">Health </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-10"></div>
+            <p class="u-text u-text-24"id="move_speed">&nbsp;{{character.move_speed}}</p>
+            <p class="u-text u-text-25">Move Speed </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-11"></div>
+            <p class="u-text u-text-26"id="action_speed">&nbsp;{{character.action_speed}}</p>
+            <p class="u-text u-text-27">Action Speed </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-12"></div>
+            <p class="u-text u-text-28"id="spell_casting_speed">&nbsp;{{character.spell_casting_speed}}</p>
+            <p class="u-text u-text-29">Spell Casting Speed</p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-13"></div>
+            <p class="u-text u-text-30" id="buff_duration">&nbsp;{{character.buff_duration}}</p>
+            <p class="u-text u-text-31">Buff Duration </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-14"></div>
+            <p class="u-text u-text-32 "id="debuff_duration">&nbsp;{{character.debuff_duration}}​</p>
+            <p class="u-text u-text-33">Debuff​ Duration</p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-15"></div>
+            <p class="u-text u-text-34" id="physical_power">&nbsp;​{{character.physical_power}}</p>
+            <p class="u-text u-text-35">Physical Power</p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-16"></div>
+            <p class="u-text u-text-36" id="magical_power">&nbsp;{{character.magical_power}}</p>
+            <p class="u-text u-text-37">Magic Power </p>
+            <div class="u-border-3 u-border-grey-80 u-line u-line-horizontal u-line-17"></div>           
+            
+          </div>
+        </div>
+      </div>
+    </section>
+      
+    <script type="text/javascript">
+      $(document).ready(function() {       
+        function sendIncreaseStrengthRequest() {
+            $.ajax({
+                url: "{% url 'index' %}",
+                type: "POST",
+                data: {
+                    action: 'increase_strength',
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+                },
+                success: function(response) {
+                    $('#strength').text(response.strength);  
+                    $('#health').text(response.health); 
+                    $('#physical_power').text(response.physical_power);                                    
+                }
+            });
+        }
+    
+        function sendDecreaseStrengthRequest() {
+            $.ajax({
+                url: "{% url 'index' %}",
+                type: "POST",
+                data: {
+                    action: 'decrease_strength',
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+                },
+                success: function(response) {
+                    $('#strength').text(response.strength);  
+                    $('#health').text(response.health);   
+                    $('#physical_power').text(response.physical_power);                                      
+                }        
+            });      
+        }
+    
+        function sendIncreaseVigorRequest() {
+            $.ajax({
+                url: "{% url 'index' %}",
+                type: "POST",
+                data: {
+                    action: 'increase_vigor',
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+                },
+                success: function(response) {
+                    $('#vigor').text(response.vigor);  
+                    $('#health').text(response.health);                                       
+                }        
+            });      
+        }
+    
+        function sendDecreaseVigorRequest() {
+            $.ajax({
+                url: "{% url 'index' %}",
+                type: "POST",
+                data: {
+                    action: 'decrease_vigor',
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+                },
+                success: function(response) {
+                    $('#vigor').text(response.vigor);  
+                    $('#health').text(response.health);                                       
+                }        
+            });      
+        }
+        function sendIncreaseAgilityRequest() {
+          $.ajax({
+              url: "{% url 'index' %}",
+              type: "POST",
+              data: {
+                  action: 'increase_agility',
+                  csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+              },
+              success: function(response) {
+                  $('#agility').text(response.agility);  
+                  $('#action_speed').text(response.action_speed);    
+                  $('#move_speed').text(response.move_speed);                                    
+              }        
+          });      
+      }
+      function sendDecreaseAgilityRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'decrease_agility',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#agility').text(response.agility);  
+                $('#action_speed').text(response.action_speed);  
+                $('#move_speed').text(response.move_speed);                                       
+            }        
+        });      
+      }
+      function sendIncreaseDexterityRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'increase_dexterity',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#dexterity').text(response.dexterity);  
+                $('#action_speed').text(response.action_speed);                                       
+            }        
+        });      
+      }
+      function sendDecreaseDexterityRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'decrease_dexterity',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#dexterity').text(response.dexterity);  
+                $('#action_speed').text(response.action_speed);                                       
+            }        
+        });      
+      }
+      function sendResetRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'reset',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#dexterity').text(response.dexterity);  
+                $('#action_speed').text(response.action_speed);   
+                $('#agility').text(response.agility);  
+                $('#move_speed').text(response.move_speed);   
+                $('#vigor').text(response.vigor);  
+                $('#strength').text(response.strength);
+                $('#health').text(response.health);  
+                $('#dexterity').text(response.dexterity);   
+                $('#spell_casting_speed').text(response.spell_casting_speed);    
+                $('#knowledge').text(response.knowledge);    
+                $('#will').text(response.will);      
+                $('#buff_duration').text(response.buff_duration); 
+                $('#debuff_duration').text(response.debuff_duration);  
+                $('#physical_power').text(response.physical_power);    
+                $('#magical_power').text(response.magical_power);   
+                $('#resourcefulness)').text(response.resourcefulness);  
+            }        
+        });      
+      }
+      function sendIncreaseKnowledgeRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'increase_knowledge',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#knowledge').text(response.knowledge);  
+                $('#spell_casting_speed').text(response.spell_casting_speed);                                       
+            }        
+        });      
+      }
+      function sendDecreaseKnowledgeRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'decrease_knowledge',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#knowledge').text(response.knowledge);  
+                $('#spell_casting_speed').text(response.spell_casting_speed);                                       
+            }        
+        });      
+      }
+      function sendIncreaseWillRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'increase_will',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#will').text(response.will);  
+                $('#buff_duration').text(response.buff_duration);     
+                $('#debuff_duration').text(response.debuff_duration);  
+                $('#magical_power').text(response.magical_power);                                  
+            }        
+        });      
+      }
+      function sendDecreaseWillRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'decrease_will',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+                $('#will').text(response.will);  
+                $('#buff_duration').text(response.buff_duration);  
+                $('#debuff_duration').text(response.debuff_duration);  
+                $('#magical_power').text(response.magical_power);                                 
+            }        
+        });      
+      }
+      function sendIncreaseResourcefulnessRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'increase_resourcefulness',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+              $('#resourcefulness').text(response.resourcefulness);                                              
+            }        
+        });      
+      }
+      function sendDecreaseResourcefulnessRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'decrease_resourcefulness',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+              $('#resourcefulness').text(response.resourcefulness);                                                  
+            }        
+        });      
+      }
+      function sendSaveRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'save',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+              $('#dexterity').text(response.dexterity);  
+              $('#action_speed').text(response.action_speed);   
+              $('#agility').text(response.agility);  
+              $('#move_speed').text(response.move_speed);   
+              $('#vigor').text(response.vigor);  
+              $('#strength').text(response.strength);
+              $('#health').text(response.health);  
+              $('#dexterity').text(response.dexterity);   
+              $('#spell_casting_speed').text(response.spell_casting_speed);    
+              $('#knowledge').text(response.knowledge);    
+              $('#will').text(response.will);      
+              $('#buff_duration').text(response.buff_duration); 
+              $('#debuff_duration').text(response.debuff_duration);  
+              $('#physical_power').text(response.physical_power);    
+              $('#magical_power').text(response.magical_power);   
+              $('#resourcefulness').text(response.resourcefulness);                                                  
+            }        
+        });      
+      }
+      function sendLoadRequest() {
+        $.ajax({
+            url: "{% url 'index' %}",
+            type: "POST",
+            data: {
+                action: 'load',
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val() 
+            },
+            success: function(response) {
+              $('#dexterity').text(response.dexterity);  
+              $('#action_speed').text(response.action_speed);   
+              $('#agility').text(response.agility);  
+              $('#move_speed').text(response.move_speed);   
+              $('#vigor').text(response.vigor);  
+              $('#strength').text(response.strength);
+              $('#health').text(response.health);  
+              $('#dexterity').text(response.dexterity);   
+              $('#spell_casting_speed').text(response.spell_casting_speed);    
+              $('#knowledge').text(response.knowledge);    
+              $('#will').text(response.will);      
+              $('#buff_duration').text(response.buff_duration); 
+              $('#debuff_duration').text(response.debuff_duration);  
+              $('#physical_power').text(response.physical_power);    
+              $('#magical_power').text(response.magical_power);               
+              $('#resourcefulness').text(response.resourcefulness);                                             
+            }        
+        });      
+      }
+      
+           
+        $('#increase-strength-img-btn').click(function(event) {
+            event.preventDefault();
+            sendIncreaseStrengthRequest();
+        });
+    
+        $('#decrease-strength-img-btn').click(function(event) {
+            event.preventDefault();
+            sendDecreaseStrengthRequest();
+        });
+    
+        $('#increase-vigor-img-btn').click(function(event) {
+            event.preventDefault();
+            sendIncreaseVigorRequest();
+        });
+    
+        $('#decrease-vigor-img-btn').click(function(event) {
+            event.preventDefault();
+            sendDecreaseVigorRequest();
+        });
+
+        $('#increase-agility-img-btn').click(function(event) {
+          event.preventDefault();
+          sendIncreaseAgilityRequest();       
+        });
+        $('#decrease-agility-img-btn').click(function(event) {
+          event.preventDefault();
+          sendDecreaseAgilityRequest();       
+        });
+        $('#decrease-dexterity-img-btn').click(function(event) {
+          event.preventDefault();
+          sendDecreaseDexterityRequest();       
+        });
+        $('#increase-dexterity-img-btn').click(function(event) {
+          event.preventDefault();
+          sendIncreaseDexterityRequest();       
+        });
+        $('#reset-btn').click(function(event) {
+          event.preventDefault();
+          sendResetRequest();       
+        });
+        $('#increase-knowledge-img-btn').click(function(event) {
+          event.preventDefault();
+          sendIncreaseKnowledgeRequest();       
+        });
+        $('#decrease-knowledge-img-btn').click(function(event) {
+          event.preventDefault();
+          sendDecreaseKnowledgeRequest();       
+        });
+        $('#increase-will-img-btn').click(function(event) {
+          event.preventDefault();
+          sendIncreaseWillRequest();       
+        });
+        $('#decrease-will-img-btn').click(function(event) {
+          event.preventDefault();
+          sendDecreaseWillRequest();       
+        });
+        $('#increase-resourcefulness-img-btn').click(function(event) {
+          event.preventDefault();
+          sendIncreaseResourcefulnessRequest();       
+        });
+        
+        $('#decrease-resourcefulness-img-btn').click(function(event) {
+          event.preventDefault();
+          sendDecreaseResourcefulnessRequest();       
+        });
+        $('#save-btn').click(function(event) {
+          event.preventDefault();
+          sendSaveRequest();       
+        });
+        $('#load-btn').click(function(event) {
+          event.preventDefault();
+          sendLoadRequest();       
+        });
+        
+    });
+    
+    </script>
+    
+  
+</body></html>
